@@ -54,7 +54,7 @@ class SlideScrollView: UIView,UIScrollViewDelegate {
         scrollView.delegate = self
         
         for var i=0; i<pageCount; i++ {
-            var imgURL:String=imageArray[i] as String
+            var imgURL:String=imageArray[i] as! String
             var imgView:UIImageView=UIImageView()
             
             var viewWidth = Int(viewSize.size.width)*i
@@ -106,7 +106,7 @@ class SlideScrollView: UIView,UIScrollViewDelegate {
         noteTitle.font = UIFont.boldSystemFontOfSize(16)
         noteTitle.numberOfLines = 0
         noteTitle.lineBreakMode = NSLineBreakMode.ByCharWrapping
-        noteTitle.text = self.titleArray[0] as String
+        noteTitle.text = self.titleArray[0] as! String
         noteTitle.frame = CGRect(origin: CGPoint(x: 10,y: 130),size: CGSize(width: 300,height: 50))
         self.addSubview(noteTitle)
 
@@ -155,12 +155,12 @@ class SlideScrollView: UIView,UIScrollViewDelegate {
         if (titleIndex<0) {
         titleIndex=titleArray.count-1;
         }
-        noteTitle.text = self.titleArray[titleIndex] as String
+        noteTitle.text = self.titleArray[titleIndex] as! String
 
     }
     
     func imagePressed (tap:UITapGestureRecognizer){
-        delegate?.SlideScrollViewDidClicked(tap.view.tag)
+        delegate?.SlideScrollViewDidClicked(tap.view!.tag)
     }
 
 }
